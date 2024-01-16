@@ -5,9 +5,10 @@ The boundaries of closed 2D domains are arcs, and the boundary of 3D domains are
 - The circle is the boundary of the disk.
 - The 6 faces (squares) form the boundary of the associated cube.
 
-## Main Functionalities of the library: ##
-
-### fit_fourier 
+# Main Functionalities of the library: #
+## Dimension 2 ##
+The domains in dimension two, or the closed arcs, have to be represented by their support function, and ,ore precisely by the Fourier coefficients of the truncated Fourier series associated with their support function. 
+### fit_fourier:
 
 Fit a Fourier series to the given data.
 
@@ -23,7 +24,7 @@ Fit a Fourier series to the given data.
 obj.fit_fourier(N=10, fourier_coeff=[...], domain=[start_value, end_value])
 ```
 
-### <span style="color:blue;">angles_gen_arc</span>
+### <span style="color:blue;">angles_gen_arc</span>:
 
 Generates equidistant angles on an arc, given the parametric equation of its boundary.
 By default, the domain of definition of the function is [0, 2pi].
@@ -41,3 +42,41 @@ By default, the domain of definition of the function is [0, 2pi].
 
 ```python
 result = obj.<span style="color:blue;">angles_gen_arc</span>(p=[...], domain=[start_value, end_value])
+```
+
+### <span style="color:blue;">two_dimensional_equidistant_points</span>:
+
+Computes the boundary points of the domain enclosed by the arc `p`.
+This function assumes that the domain is centered around the origin.
+
+#### Parameters
+
+- `include_normals` (boolean, optional): Computes and returns the exterior unit normals at the points `X` if set to True. The default is False.
+
+#### Returns
+
+- `X` (numpy array): Returns a 2D numpy array containing points on the boundary.
+- `normals` (numpy array): Returns a 2D numpy array containing the normals vectors. (Returned only if `include_normals` is True)
+
+#### Usage Example
+
+```python
+result = obj.<span style="color:blue;">two_dimensional_equidistant_points</span>(include_normals=False)
+```
+
+### <span style="color:blue;">two_dimensional_plotter</span>:
+
+Create a 2D plot based on the specified plot type.
+
+#### Parameters
+
+- `plot_type` (str, optional): Type of plot to create ("scatter" or "line"). Default is "scatter".
+
+#### Usage Example
+
+```python
+obj.<span style="color:blue;">two_dimensional_plotter</span>(plot_type="scatter")
+```
+
+## Dimension 3 ##
+

@@ -43,10 +43,40 @@ Consider the unit circle of radius **R** centered at the origin. Its support fun
 h_D(θ) = R
 ```
 
-And its Fourier series contains only the **a₀** term and can be written as (1,0,0,0,...0).
+And its Fourier series contains only the **a₀** term and can be written as 
 
 ```
-
+(1,0,0,0,...0)
 ```
+
+### Method of Fundamental Solutions (MFS)
+
+The **Method of Fundamental Solutions (MFS)** is a numerical technique for solving boundary value problems (BVPs) by using source points both on the boundary of the domain and on an artificial boundary slightly outside the domain.
+
+#### Key Steps:
+1. **Source Points on Boundary and Artificial Boundary**:  
+   We place source points on the boundary of the domain as well as on an artificial boundary that lies just outside the domain.
+   
+2. **Estimation of Eigenfunctions**:  
+   The method estimates the eigenfunctions of the problem by using the source points on the artificial boundary.
+   
+3. **Computation of Eigenvalues**:  
+   The eigenvalues are computed based on the eigenfunctions obtained from the source points on the artificial boundary.
+
+This approach allows for an efficient estimation of the solution, particularly for problems involving eigenvalue computations, as it avoids directly solving the differential equation in the interior of the domain.
 
 ## Use Case 
+
+The script **Dimension_two_class** solves the the Steklov and Variant problems for domains in dimension 2.
+
+First we will initialize the class by feeding it two arguments:
+
+- N: The number of points to be considered on the boundary of the domain **D** and the artificial boundary; default is 80.
+- beta: The distance between the boundary of **D** and the artificial boundary associated with **D**, default is 0.4.
+- 
+```python
+instance = dimension_2(80, 0.4)
+```
+
+
+

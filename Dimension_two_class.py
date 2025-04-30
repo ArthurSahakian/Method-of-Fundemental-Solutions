@@ -3,26 +3,13 @@
 Created on Sun Apr  6 20:47:15 2025
 
 @author: sahakian.a
-
-Licensed under
- Method-of-Fundemental-Solutions © 2025 by Arthur Alexandre Sahakian is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International 
-
 """
 
-from scipy.special import factorial
-import itertools
-from scipy import integrate
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.optimize
-import matplotlib.patches as patches
-#import param_tools
-from scipy.special import lpmv
-
 import scipy
 
-from scipy.spatial.distance import pdist
-from scipy.spatial import ConvexHull
 
 class dimension_2():
     
@@ -291,6 +278,61 @@ class dimension_2():
         
         return Z,W 
     
+        
+    def plot_shape(self, scatter=False, ann=False, include_art_boundary=False):
+        """
+        Plots the shape described by the domain. Optionally includes scatter plot, annotations, and artificial boundary.
+    
+        Parameters
+        ----------
+        scatter : bool, optional
+            If True, uses scatter plot instead of a connected line plot. Default is False.
+        ann : bool, optional
+            If True, annotates the points with their indices. Default is False.
+        include_art_boundary : bool, optional
+            If True, plots the artificial boundary in red. Default is False.
+        """
+    
+        # Ensure self.X and normals are defined
+        if not hasattr(self, 'X') or self.X is None:
+            angles = self.angles_gen()
+            self.X = self.X_given_angle(angles)
+            normals = self.normal_given_angle(angles)
+        else:
+            angles = self.angles_gen()
+            normals = self.normal_given_angle(angles)
+    
+        Y = self.X + self.beta * normals
+    
+        # Prepare closed-loop shape
+        Z = np.vstack([self.X, self.X[0]])
+    
+        fig, ax = plt.subplots()
+    
+        # Plot original shape
+        if scatter:
+            ax.scatter(Z[:, 0], Z[:, 1], color='b', label='Original Shape')
+        else:
+            ax.plot(Z[:, 0], Z[:, 1], color='b', label='Original Shape')
+    
+        # Annotations
+        if ann:
+            for i, (x, y) in enumerate(Z):
+                ax.annotate(str(i), (x, y))
+    
+        # Plot artificial boundary
+        if include_art_boundary:
+            W = np.vstack([Y, Y[0]])
+            if scatter:
+                ax.scatter(W[:, 0], W[:, 1], color='r', label='Artificial Boundary')
+            else:
+                ax.plot(W[:, 0], W[:, 1], color='r', label='Artificial Boundary')
+    
+        ax.set_aspect('equal')
+        ax.legend()
+        plt.show()
+
+
             
     def real_eigenvalue(self,i=0,method="direct",problem="steklov"):
         '''
@@ -316,8 +358,8 @@ class dimension_2():
         
         ##Generate angles, points and normals
         angles=self.angles_gen()
-        X=ins.X_given_angle(angles)
-        normals= ins.normal_given_angle(angles)
+        X=self.X_given_angle(angles)
+        normals= self.normal_given_angle(angles)
         
         ##Compute the matrices according to problem
         if problem == "steklov":
@@ -360,13 +402,3 @@ class dimension_2():
     
         
     
-        
-    
-ins = dimension_2(80,0.4)
-
-ins.fourrier_fit(np.array([1,0,0,0.0,0]))
-angles=ins.angles_gen()
-a=ins.X_given_angle(angles)
-n= ins.normal_given_angle(angles)
-eig = ins.real_eigenvalue(problem="variant")
-        

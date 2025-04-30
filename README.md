@@ -1,25 +1,14 @@
-This librairy computes the numerical approximations of the Steklov Biharmonic eigenvalues via the Method of Fundamental Solutions (MFS).
-The librairy is the code used in the thesis Biharmonic eigenvalue problems ( click [here](https://www.researchgate.net/publication/379825121_Polyharmonic_eigenvalue_problems_of_the_steklov_type)).
+# Method of Fundamental Solution for the Biharmonic Steklov Problem
 
-# Project Title
+This librairy computes the numerical approximations of the Steklov Biharmonic eigenvalues via the Method of Fundamental Solutions (MFS), used in the thesis Biharmonic eigenvalue problems ( click [here](https://www.researchgate.net/publication/379825121_Polyharmonic_eigenvalue_problems_of_the_steklov_type)).
 
-A short description of your project in one sentence.
+##  Description
 
-## 📘 Description
+This project computes the eigenvalues of two Biharmonic eigenvalue problems of the Steklov kind; the classical Steklov problem and the Variant one. The eigenvalues of these problems vary according to the domain of the object. 
 
-This project solves the following mathematical problem:
+The script **Dimension_two_class** treats domains that are of dimension two. In particular, it treats smooth domains (boundaries of class C2 at least).
 
-> **[Insert Problem Statement]**
+##  Use case
 
-For example, we aim to minimize the following loss function:
-
-![Loss Function](https://latex.codecogs.com/png.image?\dpi{120}&space;L(\theta)=\frac{1}{n}\sum_{i=1}^n(y_i-f_\theta(x_i))^2)
-
-The algorithm is implemented in Python and relies on [insert key libraries, e.g., NumPy, PyTorch, etc.].
-
-## 🧠 Mathematical Formulation
-
-Let \\( x \in \mathbb{R}^n \\) be the input features and \\( y \in \mathbb{R} \\) the target. The model seeks to find parameters \\( \theta \\) that minimize:
-
-```math
-\min_{\theta} \; \frac{1}{n} \sum_{i=1}^n \left( y_i - f_\theta(x_i) \right)^2
+```python
+gureg

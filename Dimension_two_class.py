@@ -3,6 +3,10 @@
 Created on Sun Apr  6 20:47:15 2025
 
 @author: sahakian.a
+
+Licensed under
+ Method-of-Fundemental-Solutions © 2025 by Arthur Alexandre Sahakian is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International 
+
 """
 
 from scipy.special import factorial

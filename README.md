@@ -10,26 +10,26 @@ The script **Dimension_two_class** treats domains that are of dimension two. In 
 
 ## Mathematical Background 
 
-###  Support Function — Definition
+### Support Function — Definition
 
-Let \\( D \subset \mathbb{R}^2 \\) be a smooth, convex domain. The **support function** of \\( D \\) is defined as:
+Let **D** ⊂ ℝ² be a smooth, convex domain. The **support function** of **D** is defined as:
 
-\[
-h_D(\theta) = \max_{x \in D} \langle x, u(\theta) \rangle = \max_{x \in D} (x_1 \cos\theta + x_2 \sin\theta)
-\]
+```
+h_D(θ) = max_{x ∈ D} <x, u(θ)> = max_{x ∈ D} (x₁ cos(θ) + x₂ sin(θ))
+```
 
-where \\( u(\theta) = (\cos\theta, \sin\theta) \\) is the unit vector in the direction \\( \theta \\).  
-This function returns the distance from the origin to the tangent line of **D** in the direction \\( \theta \\).
+where **u(θ) = (cos(θ), sin(θ))** is the unit vector in the direction **θ**.  
+This function returns the distance from the origin to the tangent line of **D** in the direction **θ**.
 
 ---
 
-###  Fourier Approximation of the Support Function
+### Fourier Approximation of the Support Function
 
-Because \\( h_D(\theta) \\) is a \\( 2\pi \\)-periodic function, it can be approximated by a truncated Fourier series:
+Because **h_D(θ)** is a **2π**-periodic function, it can be approximated by a truncated Fourier series:
 
-\[
-h_D(\theta) \approx a_0 + \sum_{n=1}^{N} \left( a_n \cos(n\theta) + b_n \sin(n\theta) \right)
-\]
+```
+h_D(θ) ≈ a₀ + Σ (ak cos(nθ) + bₙ sin(nθ)) from n=1 to K
+```
 
 This compact representation is useful for numerical shape optimization and inverse problems.
 
@@ -37,16 +37,16 @@ This compact representation is useful for numerical shape optimization and inver
 
 ### Example: Support Function of a Circle
 
-Consider the unit circle of radius \\( R \\) centered at the origin. Its support function is constant:
+Consider the unit circle of radius **R** centered at the origin. Its support function is constant:
 
-\[
-h_D(\theta) = R
-\]
+```
+h_D(θ) = R
+```
 
-And its Fourier series contains only the \\( a_0 \\) term:
+And its Fourier series contains only the **a₀** term and can be written as (1,0,0,0,...0).
 
-\[
-h_D(\theta) = R + 0\cdot \cos(n\theta) + 0\cdot \sin(n\theta)
-\]
+```
 
----
+```
+
+## Use Case 

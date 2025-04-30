@@ -97,6 +97,39 @@ Finally, the user chooses one of two options, either "steklov" or "variant", to 
 mfs.real_eigenvalues(problem = "steklov")
 ```
 
+#### `real_eigenvalue` Function
+
+This function computes the approximate eigenvalues of a problem using the Method of Fundamental Solutions. It can solve either the original or a variant problem and supports different eigenvalue computation methods.
+
+##### Parameters:
+- `i` (integer, optional):  
+  The rank of the eigenvalue to compute. Default is `0`.
+
+- `method` (string, optional):  
+  The method for solving the eigenvalue problem. Options are:
+  - `"direct"`: Direct computation.
+  - `"inverse"`: Inverse method.
+  - `"lu"`: LU decomposition.  
+  Default is `"direct"`.
+
+- `problem` (string, optional):  
+  Defines the problem to solve. Options are:
+  - `"steklov"`: The original Steklov problem.
+  - `"variant"`: The variant of the problem.  
+  Default is `"steklov"`.
+
+##### Returns:
+- `first_eigen` (float):  
+  The eigenvalue of the given rank `i`.
+
+- `positive` (list of floats):  
+  A sorted list of all the eigenvalues of the generalized problem, only including the positive eigenvalues.
+
+##### Function Overview:
+This function generates angles, computes matrices based on the selected problem (`steklov` or `variant`), and calculates the eigenvalues using one of the specified methods (`direct`, `inverse`, `lu`, or QR). It returns the eigenvalue of the given rank `i` and a list of all positive eigenvalues.
+
+The method of calculation (e.g., LU decomposition, inverse, or direct) determines how the eigenvalues are computed from the generalized problem matrices.
+
 
 
 

@@ -69,14 +69,34 @@ This approach allows for an efficient estimation of the solution, particularly f
 
 The script **Dimension_two_class** solves the the Steklov and Variant problems for domains in dimension 2.
 
-First we will initialize the class by feeding it two arguments:
+### Importation of the class and initialization
+
+First we will import initialize the class by feeding it two arguments:
 
 - N: The number of points to be considered on the boundary of the domain **D** and the artificial boundary; default is 80.
 - beta: The distance between the boundary of **D** and the artificial boundary associated with **D**, default is 0.4.
-- 
+
 ```python
-instance = dimension_2(80, 0.4)
+from Dimension_two_class import dimension_2
+mfs = dimension_2(80, 0.4)
 ```
+
+### Fitting of the domain
+
+Let us consider the example of the circle and let us set K=3, where K is the order of the Fourrier approximation. Then the circle can be represented by the vector (1,0,0,0,0,0,0).
+
+```python
+mfs.fourrier_fit(np.array([1,0,0,0.0,0]))
+```
+
+### Computation of the Eigenvalues
+
+Finally, the user chooses one of two options, either "steklov" or "variant", to compute the eigenvalues of the associated problem. 
+
+```python
+mfs.real_eigenvalues(problem = "steklov")
+```
+
 
 
 

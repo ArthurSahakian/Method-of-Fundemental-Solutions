@@ -2,6 +2,10 @@
 
 This librairy computes the numerical approximations of the Steklov Biharmonic eigenvalues via the Method of Fundamental Solutions (MFS), used in the thesis Biharmonic eigenvalue problems (click [here](https://www.researchgate.net/publication/379825121_Polyharmonic_eigenvalue_problems_of_the_steklov_type)).
 
+This projected is licenced under
+ Method-of-Fundemental-Solutions © 2025 by Arthur Alexandre Sahakian is licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International 
+
+
 ##  Description
 
 This project computes the eigenvalues of two Biharmonic eigenvalue problems of the Steklov kind; the classical Steklov problem and the Variant one. The eigenvalues of these problems vary according to the domain of the object. 
